@@ -12,11 +12,13 @@
   </head>
   <body>
     <section class="py-10">
+      <h1 class="text-center text-3xl">Books</h1>
       <div class="grid grid-cols-4 gap-4">
-        <h1 class="text-center text-3xl">Books</h1>
         {%for book in books%}
-        <h1>{{book.title}}</h1>
-        <img src="{{book.thumbnailUrl}}" alt="" />
+        <div>
+          <h1>{{book.title}}</h1>
+          <img src="{{book.thumbnailUrl}}" alt="" />
+        </div>
         {%endfor%}
       </div>
     </section>
