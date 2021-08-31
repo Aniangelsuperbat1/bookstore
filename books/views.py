@@ -14,3 +14,6 @@ def index(request):
 def show(request, id):
     context = {'books': data}
     return render(request, 'books/show.html', context)
+
+def new(request):
+    return render(request, 'books/new.html')
