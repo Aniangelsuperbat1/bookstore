@@ -8,7 +8,10 @@
   </head>
   <body>
     <h1>hello world</h1>
+    {%for book in books%}
     <h1>{{book.title}}</h1>
+    <img src="{{book.thumbnailUrl}}" alt="">
+    {%endfor%}
     <h2>dsada</h2>
   </body>
 </html>

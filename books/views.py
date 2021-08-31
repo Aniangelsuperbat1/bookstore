@@ -3,11 +3,11 @@ import json
 
 # Create your views here.
 
-booksData = open('\Users\ZhenP\OneDrive\Desktop\django_bookstore\books.json')
+booksData = open('books.json').read()
 
 data = json.loads(booksData)
 
 def index(request):
-    context = {'data': data}
+    context = {'books': data}
     return render(request, 'books/index.html', context)
 
