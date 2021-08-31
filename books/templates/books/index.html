@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <h1>hello world</h1>
-    {%for book in books%}
-    <h1>{{book.title}}</h1>
-    <img src="{{book.thumbnailUrl}}" alt="">
-    {%endfor%}
-    <h2>dsada</h2>
+    <section class = "py-10">
+      <h1 class= "text-center text-3xl">Books</h1>
+      {%for book in books%}
+      <h1>{{book.title}}</h1>
+      <img src="{{book.thumbnailUrl}}" alt="" />
+      {%endfor%}
+    </section>
   </body>
 </html>
