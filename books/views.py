@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import json
-
+from books.models import Book
 # Create your views here.
 
 booksData = open('books.json').read()
@@ -8,6 +8,7 @@ booksData = open('books.json').read()
 data = json.loads(booksData)
 
 def index(request):
+    dbData = Book.objects.all()
     context = {'books': data}
     return render(request, 'books/index.html', context)
 
