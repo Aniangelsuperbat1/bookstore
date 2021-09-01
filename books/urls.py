@@ -4,6 +4,6 @@ from django.urls import path
 
 urlpatterns = [
     path("", views.new),
-    path("book/", views.index),
-    path('<int:id>', views.show)
+    path("book/", views.index, name ="book.all"),
+    path('<int:id>', views.show, name= "book.show")
 ]
