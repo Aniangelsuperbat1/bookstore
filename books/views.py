@@ -9,7 +9,7 @@ data = json.loads(booksData)
 
 def index(request):
     dbData = Book.objects.all()
-    context = {'books': data}
+    context = {'books': dbData}
     return render(request, 'books/index.html', context)
 
 def show(request, id):
