@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from books.models import Book
+from django.http import Http404
 # Create your views here.
 
 
@@ -9,7 +10,10 @@ def index(request):
     return render(request, 'books/index.html', context)
 
 def show(request, id):
-    singleBook = Book.objects.get(pk=id)
+    try:
+        singleBook = Book.objects.get(pk=id)
+    except Book.DoesNotExist:
+        raise Http404('book not found')
     context = {'book': singleBook}
     return render(request, 'books/show.html', context)
 
