@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book
 # Create your views here.
 
@@ -17,4 +17,5 @@ def new(request):
     return render(request, 'books/new.html')
 
 def review(request):
-    
+    return redirect('/book')
+
