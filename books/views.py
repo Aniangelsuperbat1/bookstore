@@ -15,3 +15,6 @@ def show(request, id):
 
 def new(request):
     return render(request, 'books/new.html')
+
+def review(request):
+    
