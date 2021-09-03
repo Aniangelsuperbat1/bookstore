@@ -10,6 +10,7 @@ def index(request):
 
 def show(request, id):
     singleBook = get_object_or_404(Book, pk=id)
+    review = Review.objects.all()
     context = {'book': singleBook}
     return render(request, 'books/show.html', context)
 
