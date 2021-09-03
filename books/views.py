@@ -17,5 +17,6 @@ def new(request):
     return render(request, 'books/new.html')
 
 def review(request):
+    review = (request.POST['review'])
     return redirect('/book')
 
