@@ -17,7 +17,7 @@ class BookListView(ListView):
 #     return render(request, 'books/index.html', context)
 
 class BookDetailView(DetailView):
-    pass
+    model = Book
 
 
 # def show(request, id):
