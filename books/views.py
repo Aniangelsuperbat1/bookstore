@@ -16,15 +16,15 @@ class BookListView(ListView):
 #     context = {'books': dbData}
 #     return render(request, 'books/index.html', context)
 
-class BookDetailView():
+class BookDetailView(DetailView):
     pass
 
 
-def show(request, id):
-    singleBook = get_object_or_404(Book, pk=id)
-    reviews = Review.objects.filter(book_id=id).order_by('-created_at')
-    context = {'book': singleBook, 'reviews': reviews}
-    return render(request, 'books/show.html', context)
+# def show(request, id):
+#     singleBook = get_object_or_404(Book, pk=id)
+#     reviews = Review.objects.filter(book_id=id).order_by('-created_at')
+#     context = {'book': singleBook, 'reviews': reviews}
+#     return render(request, 'books/show.html', context)
 
 def new(request):
     return render(request, 'books/new.html')
