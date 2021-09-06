@@ -4,8 +4,8 @@ from django.views.generic import ListView
 # Create your views here.
 
 class BookListView(ListView):
-    template_name = 'books/index.html'
-    context_object_name = 'books'
+    # template_name = 'books/index.html'
+    # context_object_name = 'books'
     
     def get_queryset(self):
         return Book.objects.all()
