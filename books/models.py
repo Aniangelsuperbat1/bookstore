@@ -17,4 +17,3 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     book_id = models.BigIntegerField(default=1)
 
-

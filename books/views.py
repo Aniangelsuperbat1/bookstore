@@ -17,9 +17,9 @@ def show(request, id):
 def new(request):
     return render(request, 'books/new.html')
 
-def review(request):
+def review(request, id):
     body = (request.POST['review'])
-    newReview = Review(body=body)
+    newReview = Review(body=body, book_id = id)
     newReview.save()
     return redirect('/book')
 
