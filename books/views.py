@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book, Review
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 # Create your views here.
 
 class BookListView(ListView):
@@ -15,6 +15,9 @@ class BookListView(ListView):
 #     dbData = Book.objects.all()
 #     context = {'books': dbData}
 #     return render(request, 'books/index.html', context)
+
+class BookDetailView():
+
 
 def show(request, id):
     singleBook = get_object_or_404(Book, pk=id)
