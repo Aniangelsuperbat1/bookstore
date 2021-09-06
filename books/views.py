@@ -3,6 +3,10 @@ from books.models import Book, Review
 from django.views import generic
 # Create your views here.
 
+class BookListView(generic.ListView):
+    model = Book
+    
+
 
 def index(request):
     dbData = Book.objects.all()
