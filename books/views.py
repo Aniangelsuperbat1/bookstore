@@ -4,8 +4,9 @@ from django.views import generic
 # Create your views here.
 
 class BookListView(generic.ListView):
-    model = Book
     template_name = 'books/index.html'
+    context_object_name = 'books'
+    
     
 
 
