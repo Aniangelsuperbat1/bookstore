@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book, Review
-from django.views import generic
+from django.views.generic import ListView
 # Create your views here.
 
-class BookListView(generic.ListView):
+class BookListView(ListView):
     template_name = 'books/index.html'
     context_object_name = 'books'
     
