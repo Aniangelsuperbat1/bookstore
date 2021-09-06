@@ -11,10 +11,10 @@ class BookListView(generic.ListView):
         return Book.objects.all()
 
 
-def index(request):
-    dbData = Book.objects.all()
-    context = {'books': dbData}
-    return render(request, 'books/index.html', context)
+# def index(request):
+#     dbData = Book.objects.all()
+#     context = {'books': dbData}
+#     return render(request, 'books/index.html', context)
 
 def show(request, id):
     singleBook = get_object_or_404(Book, pk=id)
