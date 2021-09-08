@@ -28,7 +28,7 @@
       <button type="submit" class='float-right border rounded p-2 bg-grey-800 text-black'>Submit Review</button>
     </form>
     <div>
-       {%for review in book.review_set.all%}
+       {%for review in reviews%}
        <p>{{review.body}}</p>
        {%endfor%}
     </div>
