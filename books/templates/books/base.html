@@ -12,25 +12,8 @@
   </head>
   <body>
     <section class="py-10">
-      <h1 class="text-center text-4xl">Books</h1>
-      <h1 class="text-center text-4xl">{{book.title}}</h1>
-      <div class="flex justify-center">
-        <img src="{{book.thumbnailUrl}}" alt="" />
-      </div>
-      <p>Authors: {{book.authors|join:", "}}</p>
-      <p>Pages: {{book.pageCount}}</p>
-      <p>{{book.shortDescription}}</p>
-      <p>{{book.longDescription}}</p>
+        {% block content%}
+        {%endblock%}
     </section>
-    <form action="{% url 'book.review' book.id %}" method="POST">
-      {% csrf_token %}
-      <textarea class="border rounded p-2 w-full" name="review" placeholder="write your review here" rows='5' id=""></textarea>
-      <button type="submit" class='float-right border rounded p-2 bg-grey-800 text-black'>Submit Review</button>
-    </form>
-    <div>
-       {%for review in reviews%}
-       <p>{{review.body}}</p>
-       {%endfor%}
-    </div>
   </body>
 </html>
