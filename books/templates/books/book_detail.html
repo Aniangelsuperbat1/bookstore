@@ -1,19 +1,15 @@
-{% extends 'base.html'%}
-{%block content%}
-{%endblock%}
+{% extends 'books/base.html'%} {%block content%}
 
+<h1 class="text-center text-4xl">Books</h1>
+<h1 class="text-center text-4xl">{{book.title}}</h1>
+<div class="flex justify-center">
+  <img src="{{book.thumbnailUrl}}" alt="" />
+</div>
+<p>Authors: {{book.authors|join:", "}}</p>
+<p>Pages: {{book.pageCount}}</p>
+<p>{{book.shortDescription}}</p>
+<p>{{book.longDescription}}</p>
 
-<section class="py-10">
-  <h1 class="text-center text-4xl">Books</h1>
-  <h1 class="text-center text-4xl">{{book.title}}</h1>
-  <div class="flex justify-center">
-    <img src="{{book.thumbnailUrl}}" alt="" />
-  </div>
-  <p>Authors: {{book.authors|join:", "}}</p>
-  <p>Pages: {{book.pageCount}}</p>
-  <p>{{book.shortDescription}}</p>
-  <p>{{book.longDescription}}</p>
-</section>
 <form action="{% url 'book.review' book.id %}" method="POST">
   {% csrf_token %}
   <textarea
@@ -35,3 +31,4 @@
   <p>{{review.body}}</p>
   {%endfor%}
 </div>
+{%endblock%}
