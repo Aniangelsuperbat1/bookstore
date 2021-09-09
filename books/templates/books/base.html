@@ -8,12 +8,9 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>{%block title%} Book Reviews {%endblock%}</title>
   </head>
   <body>
-    <section class="py-10">
-        {% block content%}
-        {%endblock%}
-    </section>
+    <section class="py-10">{% block content%} {%endblock%}</section>
   </body>
 </html>
