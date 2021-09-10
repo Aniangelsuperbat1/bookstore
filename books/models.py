@@ -8,6 +8,7 @@ class Book(models.Model):
     thumbnailUrl = models.CharField(max_length=200, null=True)
     shortDescription = models.CharField(max_length=200, null=True)
     longDescription = models.TextField(null=True)
+    authors = models.ManyToManyField(Authors)
 
     def __str__(self):
         return f'{self.id} {self.title}'
