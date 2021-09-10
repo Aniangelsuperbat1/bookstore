@@ -31,6 +31,7 @@ class BookDetailView(DetailView):
 #     context = {'book': singleBook, 'reviews': reviews}
 #     return render(request, 'books/show.html', context)
 
+
 def new(request):
     return render(request, 'books/new.html')
 
@@ -39,4 +40,12 @@ def review(request, id):
     newReview = Review(body=body, book_id = id)
     newReview.save()
     return redirect('/book')
+
+def author(request, author):
+    books = Book.objects.filter(authors__name = author)
+    context = {'book_list': books}
+    return render(request, 'books/book_list.html', context)
+
+
+
 
