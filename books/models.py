@@ -1,7 +1,8 @@
 from django.db import models
 
 # Create your models here.
-
+class Authors(models.Model):
+    name = models.CharField(max_length=255)
 class Book(models.Model):
     title = models.CharField(max_length=200)
     pageCount = models.IntegerField(default=0)
@@ -18,5 +19,4 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
 
-class Authors(models.Model):
-    name = models.CharField(max_length=255, null=True)
+
