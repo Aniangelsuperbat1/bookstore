@@ -1,21 +1,19 @@
-{%extend 'books/base.html'%}
+{%extends 'books/base.html'%} 
 {%block title%} Booksotre - Books {%endblock%}
-
-      <h1 class="text-center text-4xl">Books</h1>
-      <div class="grid grid-cols-4 gap-4 mt-10">
-        {%for book in book_list%}
-        <a
-          href="{% url 'book.show' book.id %}"
-          class="justify-self-center text-center my-4"
-          target="_blank"
-        >
-          <div class="flex justify-center">
-            <img src="{{book.thumbnailUrl}}" alt="Book" />
-          </div>
-          <p class="text-lg text-gray-700">{{book.title}}</p>
-        </a>
-        {%endfor%}
-      </div>
-    </section>
-  </body>
-</html>
+{%block content%}
+<h1 class="text-center text-4xl">Books</h1>
+<div class="grid grid-cols-4 gap-4 mt-10">
+  {%for book in book_list%}
+  <a
+    href="{% url 'book.show' book.id %}"
+    class="justify-self-center text-center my-4"
+    target="_blank"
+  >
+    <div class="flex justify-center">
+      <img src="{{book.thumbnailUrl}}" alt="Book" />
+    </div>
+    <p class="text-lg text-gray-700">{{book.title}}</p>
+  </a>
+  {%endfor%}
+</div>
+{%endblock%}

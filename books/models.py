@@ -16,3 +16,6 @@ class Review(models.Model):
     body = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
+
+class Authors(models.Model):
+    name = models.CharField(max_length=255, null=True)
