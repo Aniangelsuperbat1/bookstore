@@ -1,13 +1,14 @@
-{% extends 'books/base.html'%} 
-{%block content%} {%block title%}
-Bookstore - {{book.title}}{%endblock%}
+{% extends 'books/base.html'%} {%block content%} {%block title%} Bookstore -
+{{book.title}}{%endblock%}
 
 <h1 class="text-center text-4xl">Books</h1>
 <h1 class="text-center text-4xl">{{book.title}}</h1>
 <div class="flex justify-center">
   <img src="{{book.thumbnailUrl}}" alt="" />
 </div>
-<p>Authors: {{book.authors|join:", "}}</p>
+<p>Author</p>
+{%for author in authors%}
+<p>{{author}}, {%endfor%}</p>
 <p>Pages: {{book.pageCount}}</p>
 <p>{{book.shortDescription}}</p>
 <p>{{book.longDescription}}</p>
