@@ -6,13 +6,14 @@
 <div class="flex justify-center">
   <img src="{{book.thumbnailUrl}}" alt="" />
 </div>
-<div>
-  <p>Author</p>
-{%for author in authors%} 
-<a href="">{{author}}</a>
-{%endfor%}
+<div class = 'mt-10'>
+  <p class = 'text-3xl'>Author</p>
+  <div class = 'text-grey-600 mt-5'>
+    {%for author in authors%}
+    <a {% url 'author.books' author %}>{{author}}</a>
+    {%endfor%}
+  </div>
 </div>
-
 
 <p>Pages: {{book.pageCount}}</p>
 <p>{{book.shortDescription}}</p>
