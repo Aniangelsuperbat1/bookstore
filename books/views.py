@@ -32,9 +32,6 @@ class BookDetailView(DetailView):
 #     return render(request, 'books/show.html', context)
 
 
-def new(request):
-    return render(request, 'books/new.html')
-
 def review(request, id):
     body = (request.POST['review'])
     newReview = Review(body=body, book_id = id)
