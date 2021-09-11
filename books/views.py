@@ -4,8 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class BookListView(ListView):
-    login_url = '/login/'
+class BookListView(LoginRequiredMixin, ListView):
     # template_name = 'books/index.html'
     # context_object_name = 'books'
     
@@ -18,7 +17,7 @@ class BookListView(ListView):
 #     context = {'books': dbData}
 #     return render(request, 'books/index.html', context)
 
-class BookDetailView(DetailView):
+class BookDetailView(LoginRequiredMixin, DetailView):
     model = Book
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
