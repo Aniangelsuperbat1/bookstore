@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book, Review
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 class BookListView(ListView):
+    login_url = '/login/'
     # template_name = 'books/index.html'
     # context_object_name = 'books'
     
