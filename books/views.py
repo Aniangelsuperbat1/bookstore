@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 class BookListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     # template_name = 'books/index.html'
     # context_object_name = 'books'
     
@@ -17,7 +18,7 @@ class BookListView(LoginRequiredMixin, ListView):
 #     context = {'books': dbData}
 #     return render(request, 'books/index.html', context)
 
-class BookDetailView(LoginRequiredMixin, DetailView):
+class BookDetailView(DetailView):
     model = Book
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,16 +34,17 @@ class BookDetailView(LoginRequiredMixin, DetailView):
 #     return render(request, 'books/show.html', context)
 
 
+def author(request, author):
+    books = Book.objects.filter(authors__name = author)
+    context = {'book_list': books}
+    return render(request, 'books/book_list.html', context)
+
 def review(request, id):
     body = (request.POST['review'])
     newReview = Review(body=body, book_id = id)
     newReview.save()
     return redirect('/book')
 
-def author(request, author):
-    books = Book.objects.filter(authors__name = author)
-    context = {'book_list': books}
-    return render(request, 'books/book_list.html', context)
 
 
 
