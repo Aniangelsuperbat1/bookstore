@@ -40,9 +40,10 @@ def author(request, author):
     return render(request, 'books/book_list.html', context)
 
 def review(request, id):
-    body = (request.POST['review'])
-    newReview = Review(body=body, book_id = id)
-    newReview.save()
+    if request.user.is_authenticated:
+        body = (request.POST['review'])
+        newReview = Review(body=body, book_id = id, user=request.user)
+        newReview.save()
     return redirect('/book')
 
 
