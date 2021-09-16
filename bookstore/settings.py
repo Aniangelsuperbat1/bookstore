@@ -133,6 +133,8 @@ EMAIL_HOST_USER = 'b1178dcd0ca177'
 EMAIL_HOST_PASSWORD = 'd3ae4beec9959c'
 EMAIL_PORT = '2525'
 
+MEDIA_ROOT = "media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
