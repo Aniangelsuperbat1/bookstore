@@ -24,5 +24,6 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to="images/review")
 
 
