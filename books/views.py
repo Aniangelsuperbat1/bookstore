@@ -42,9 +42,11 @@ def author(request, author):
 
 def review(request, id):
     if request.user.is_authenticated:
+        image = request.FILES['image']
         fs = FileSystemStorage()
+        name = fs.save(image.name, image)
         body = (request.POST['review'])
-        newReview = Review(body=body, book_id = id, user=request.user)
+        newReview = Review(body=body, book_id = id, user=request.user, image=fs.url(name))
         newReview.save()
     return redirect('/book')
 
