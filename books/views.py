@@ -3,6 +3,7 @@ from books.models import Book, Review
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files.storage import FileSystemStorage
+from books.form import ReviewForm
 # Create your views here.
 
 class BookListView(LoginRequiredMixin, ListView):
@@ -25,6 +26,7 @@ class BookDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['reviews'] = context['book'].review_set.order_by('-created_at')
         context['authors'] = context['book'].authors.all()
+        context['form'] = ReviewForm()
         return context
 
 
