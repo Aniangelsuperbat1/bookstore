@@ -1,5 +1,5 @@
 from django import forms
 
 class ReviewForm(forms.Form):
-    body = forms.TEXTarea()
+    body = forms.CharField()
     image = forms.ImageField()
