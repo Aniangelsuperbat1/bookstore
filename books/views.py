@@ -48,7 +48,8 @@ def review(request, id):
         fs = FileSystemStorage()
         name = fs.save(image.name, image)
         body = (request.POST['review'])
-        newReview = Review(body=body, book_id = id, user=request.user, image=fs.url(name))
+        newReview = Review(body=body, book_id = id, user=request.user)
+        newReview.image=fs.url(name)
         newReview.save()
     return redirect('/book')
 
